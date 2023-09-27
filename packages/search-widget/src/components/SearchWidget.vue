@@ -130,12 +130,12 @@ const onVisibleChange = (visible: boolean) => {
     layer-closable
     @update:visible="onVisibleChange"
   >
-    <div id="search-input" class="border-b border-gray-100 px-4 py-2.5">
+    <div id="search-input" class="border-gray-80 px-2 border round-sm bg-gray-20 hover:border-blue-80">
       <input
         ref="searchInput"
         v-model="keyword"
         placeholder="输入关键词以搜索"
-        class="w-full py-1 text-base outline-none"
+        class="w-full py-1 text-sm"
         autocomplete="off"
         autocorrect="off"
         spellcheck="false"
