@@ -130,19 +130,20 @@ const onVisibleChange = (visible: boolean) => {
     layer-closable
     @update:visible="onVisibleChange"
   >
-    <div id="search-input" class="border-gray-80 px-2 border round-sm bg-gray-20 hover:border-blue-80">
+    <div id="search-input" class="m-2 p-2">
+      <div class=" text-blue-600 dark:text-amber-400 mb-3 font-bold text-base">搜索</div>
       <input
         ref="searchInput"
         v-model="keyword"
         placeholder="输入关键词以搜索"
-        class="w-full py-1 text-sm"
+        class="w-full py-1 outline-none rounded-lg transition-all bg-gray-50 border px-2 border-gray-300 hover:border-blue-600 text-gray-600 dark:bg-zinc-700 dark:border-zinc-600 dark:text-zinc-400 dark:hover:border-amber-400"
         autocomplete="off"
         autocorrect="off"
         spellcheck="false"
         @input="handleSearch"
       />
     </div>
-    <div class="px-2 py-2.5">
+    <div class="px-4 mb-4">
       <div
         v-if="!searchResults.hits.length"
         class="flex items-center justify-center text-sm text-gray-500"
@@ -162,46 +163,46 @@ const onVisibleChange = (visible: boolean) => {
           @click="handleOpenLink(item)"
         >
           <div
-            class="flex flex-col gap-1 rounded-md bg-gray-50 px-2 py-2.5 hover:bg-gray-100"
+            class="flex flex-col gap-1 px-2 py-2 rounded-md hover:bg-gray-50 dark:hover:bg-zinc-700 transition-all"
             :class="{
-              '!bg-gray-100': selectedIndex === itemIndex,
+              'bg-gray-100 dark:bg-zinc-900': selectedIndex === itemIndex,
             }"
           >
             <div
               v-if="item.title"
-              class="text-sm font-semibold text-gray-900"
+              class="text-sm font-semibold text-gray-600 dark:text-zinc-400"
               v-html="item.title"
             ></div>
             <div
               v-if="item.content"
-              class="text-xs text-gray-600"
+              class="text-xs font-light text-gray-500 dark:text-zinc-400"
               v-html="item.content"
             ></div>
           </div>
         </li>
       </ul>
     </div>
-    <div class="border-t border-gray-100 px-4 py-2.5">
+    <div class="border-t border-gray-100 dark:border-zinc-600 px-4 py-2.5">
       <div class="flex items-center justify-end">
-        <span class="mr-1 text-xs text-gray-600">选择</span>
+        <span class="mr-1 text-xs text-gray-600 dark:text-zinc-400">选择</span>
         <kbd
-          class="mr-1 w-5 rounded border p-0.5 text-center text-[10px] text-gray-600 shadow-sm"
+          class="mr-1 w-5 rounded border p-0.5 text-center text-[10px] text-gray-600 shadow-sm dark:text-zinc-400 dark:border-zinc-600"
         >
           ↑
         </kbd>
         <kbd
-          class="mr-5 w-5 rounded border p-0.5 text-center text-[10px] text-gray-600 shadow-sm"
+          class="mr-5 w-5 rounded border p-0.5 text-center text-[10px] text-gray-600 shadow-sm dark:text-zinc-400 dark:border-zinc-600"
         >
           ↓
         </kbd>
-        <span class="mr-1 text-xs text-gray-600">确认</span>
+        <span class="mr-1 text-xs text-gray-600 dark:text-zinc-400">确认</span>
         <kbd
-          class="mr-5 rounded border p-0.5 text-[10px] text-gray-600 shadow-sm"
+          class="mr-5 rounded border p-0.5 text-[10px] text-gray-600 shadow-sm dark:text-zinc-400 dark:border-zinc-600"
         >
           Enter
         </kbd>
-        <span class="mr-1 text-xs text-gray-600">关闭</span>
-        <kbd class="rounded border p-0.5 text-[10px] text-gray-600 shadow-sm">
+        <span class="mr-1 text-xs text-gray-600 dark:text-zinc-400">关闭</span>
+        <kbd class="rounded border p-0.5 text-[10px] text-gray-600 shadow-sm dark:text-zinc-400 dark:border-zinc-600">
           Esc
         </kbd>
       </div>
